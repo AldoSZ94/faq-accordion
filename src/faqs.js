@@ -2,7 +2,8 @@
 const faqsItems = document.querySelectorAll('.faqs__item');
 
 // Rutas de los íconos.
-const PLUS_ICON = "'./src/assets/img/icon-plus.svg';";
+const PLUS_ICON = './src/assets/img/icon-plus.svg';
+
 const MINUS_ICON = './src/assets/img/icon-minus.svg';
 
 faqsItems.forEach((item) => {
