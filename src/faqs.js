@@ -1,23 +1,32 @@
-// Selecciona todas las preguntas del accordion.
-const questions = document.querySelectorAll('.faqs__question');
+// Selecciona todos los elementos FAQ.
+const faqsItems = document.querySelectorAll('.faqs__item');
 
-questions.forEach((question) => {
-  // Escucha el click en cada pregunta.
-  question.addEventListener('click', () => {
-    // Obtiene la respuesta asociada.
-    const answer = question.nextElementSibling;
+// Rutas de los íconos.
+const PLUS_ICON = "'./src/assets/img/icon-plus.svg';";
+const MINUS_ICON = './src/assets/img/icon-minus.svg';
 
-    // Obtiene el ícono del botón.
-    const btnPlus = question.querySelector('.faqs__question-icon');
+faqsItems.forEach((item) => {
+  // Botón de la pregunta.
+  const questionButton = item.querySelector('.faqs__question');
 
+  // Respuesta del FAQ.
+  const answer = item.querySelector('.faqs__answer');
+
+  // Ícono (+ / -).
+  const plusButton = item.querySelector('.faqs__question-icon');
+
+  // Evento click.
+  questionButton.addEventListener('click', () => {
     // Muestra u oculta la respuesta.
-    answer.classList.toggle('active');
+    answer.toggleAttribute('hidden');
 
-    // Cambia el ícono según el estado.
-    if (answer.classList.contains('active')) {
-      btnPlus.src = './src/assets/img/icon-minus.svg';
-    } else {
-      btnPlus.src = './src/assets/img/icon-plus.svg';
-    }
+    // Verifica si el acordeón está abierto.
+    const isExpanded = !answer.hasAttribute('hidden');
+
+    // Actualiza accesibilidad.
+    questionButton.setAttribute('aria-expanded', isExpanded);
+
+    // Cambia el ícono.
+    plusButton.src = isExpanded ? MINUS_ICON : PLUS_ICON;
   });
 });

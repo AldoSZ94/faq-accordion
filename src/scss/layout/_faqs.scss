@@ -1,11 +1,6 @@
 @use 'sass:color';
 @use '../base/variables' as v;
 
-body {
-  min-height: 100vh;
-  background-color: v.$purple-100;
-}
-
 .bg {
   height: 30rem;
   background: url('../../assets/img/background-pattern-mobile.svg') no-repeat left bottom / cover;
@@ -64,16 +59,20 @@ body {
       color: color.adjust(v.$purple-600, $saturation: 50%);
       cursor: pointer;
     }
+
+    &:focus-visible {
+      outline: 2px solid v.$purple-950;
+      outline-offset: 4px;
+    }
   }
 
   &__answer {
-    display: none;
     padding-top: 2rem;
     line-height: 1.6;
     color: v.$purple-600;
 
-    &.active {
-      display: block;
-    }
+    // &.active {
+    //   display: block;
+    // }
   }
 }
