@@ -1,10 +1,8 @@
+import plusIcon from './assets/img/icon-plus.svg';
+import minusIcon from './assets/img/icon-minus.svg';
+
 // Selecciona todos los elementos FAQ.
 const faqsItems = document.querySelectorAll('.faqs__item');
-
-// Rutas de los íconos.
-const PLUS_ICON = './src/assets/img/icon-plus.svg';
-
-const MINUS_ICON = './src/assets/img/icon-minus.svg';
 
 faqsItems.forEach((item) => {
   // Botón de la pregunta.
@@ -28,6 +26,6 @@ faqsItems.forEach((item) => {
     questionButton.setAttribute('aria-expanded', isExpanded);
 
     // Cambia el ícono.
-    plusButton.src = isExpanded ? MINUS_ICON : PLUS_ICON;
+    plusButton.src = isExpanded ? minusIcon : plusIcon;
   });
 });
